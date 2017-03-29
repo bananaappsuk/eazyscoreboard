@@ -21,7 +21,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var btnEdit : UIButton!
     @IBOutlet weak var btnAdd : UIButton!
     @IBOutlet weak var proceed : UIBarButtonItem!
-
+    @IBOutlet weak var maxTotalGameScore : UITextField!
+    @IBOutlet weak var initialDropScore : UITextField!
+    @IBOutlet weak var middleDropScore : UITextField!
+    @IBOutlet weak var maxScorePerGame : UITextField!
 
     // properties 
     var picker : UIImagePickerController = UIImagePickerController()
@@ -94,6 +97,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("child 1 view did load fired")
         // Do any additional setup after loading the view, typically from a nib.
         pickerData = ["Default", "Scores add to Zero", "Winer takes it all", "Highest Wins", "Lowest Wins"]
+        
+        addDoneButton()
 
     }
     
@@ -307,6 +312,15 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 destinationVC?.stringFromBeforeVC = "Calculation Mode"
             }
         }
+        else if segue.identifier == "toScoreViewController" {
+            //saving the maxtotalgamescroe,initialDropScore,middleDropScore and maxScorePerGame to the local variables of ScoreViewController so that they can be used in the next screen 
+            if let destinationVC = segue.destination as? ScoreViewController  {
+                destinationVC.maxTotalGameScore =  self.maxTotalGameScore.text
+                destinationVC.initialDropScore = self.initialDropScore.text
+                destinationVC.middleDropScore = self.middleDropScore.text
+                destinationVC.maxScorePerGame = self.maxScorePerGame.text
+            }
+        }
     }
     
     
@@ -324,9 +338,28 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        maxTotalGameScore.resignFirstResponder()
+        initialDropScore.resignFirstResponder()
+        middleDropScore.resignFirstResponder()
+        maxScorePerGame.resignFirstResponder()
+        self.view.endEditing(true)
+    }
     
-    
-    
+    func addDoneButton() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                            target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        maxTotalGameScore.inputAccessoryView = keyboardToolbar
+        initialDropScore.inputAccessoryView = keyboardToolbar
+        middleDropScore.inputAccessoryView = keyboardToolbar
+        maxScorePerGame.inputAccessoryView = keyboardToolbar
+
+    }
     
     
     

@@ -17,11 +17,17 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
     var scrollVw : UIScrollView = UIScrollView()
     var totalLabelsArray = [UILabel]()
     
+    var activeField : UITextField = UITextField()
+    var maxTotalGameScore : String?
+    var initialDropScore  : String?
+    var middleDropScore   : String?
+    var maxScorePerGame   : String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.isUserInteractionEnabled = true
-
+        registerForKeyboardNotifications()
     }
 
    
@@ -98,8 +104,42 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
                 ]
                 txtField.inputAccessoryView = toolbar
                 scrollVw.addSubview(txtField)
+                if let totalScoreOfPlayerUptoNowToMarkYellow = totalLabelsArray[i].text {
+                    let sumInInt = Double(totalScoreOfPlayerUptoNowToMarkYellow)
+                    if let totalSumAllowedInInt = Double(self.maxTotalGameScore!) {
+                    if sumInInt! >= totalSumAllowedInInt {
+                        txtField.backgroundColor = UIColor.black
+                        txtField.removeFromSuperview()
+                        totalLabelsArray[i].backgroundColor = UIColor.black
+                        totalLabelsArray[i].textColor = UIColor.white
+                        
+                        let alertMessage = UIAlertController(title: "\((CommonData.playerNames[CommonData.gameSelected]?[i])!) lost", message: "Do you want to add  \((CommonData.playerNames[CommonData.gameSelected]?[i])!) again", preferredStyle: .alert)
+                        
+                        alertMessage.addTextField(configurationHandler: { (txtField) in
+                            txtField.placeholder = "Score here"
+                        })
+                       
+                        let addButon = UIAlertAction(title: "ADD", style: .default, handler: {  (_) in
+                            let textField = alertMessage.textFields![0] // Force unwrapping because we know it exists.
+                            self.totalLabelsArray[i].text = textField.text
+                            self.totalLabelsArray[i].backgroundColor = UIColor.clear
+                            self.totalLabelsArray[i].textColor = UIColor.black
+                            })
+                        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+                        alertMessage.addAction(addButon)
+                        alertMessage.addAction(cancelButton)
+                        present(alertMessage, animated: true, completion: nil)
+                    }else if sumInInt! >= 0.8*totalSumAllowedInInt {
+                        txtField.backgroundColor = UIColor.red
+                    } else if sumInInt! >= 0.6*totalSumAllowedInInt {
+                        txtField.backgroundColor = UIColor.yellow
+                    }
+                }
+                }
+                
                 }
             yAxis = yAxis + 40
+            scrollVw.contentSize.height = yAxis
             
         }
         
@@ -111,6 +151,7 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
     // textfield delegate methods 
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = textField
         textField.returnKeyType = UIReturnKeyType.done
         var textEnteredInTextField : String = "0"
         if let txtEntered = textField.text {
@@ -143,7 +184,9 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // here we will find if any value already exists in the textfield we will convert it to int and remove from the sum 
-        textField.returnKeyType = UIReturnKeyType.done
+        
+        activeField = textField
+       textField.returnKeyType = UIReturnKeyType.done
         var textEnteredInTextField : String = "0"
         if let txtEntered = textField.text {
             textEnteredInTextField = txtEntered
@@ -163,7 +206,8 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
                     
                 }
             }
-        }
+        }    
+ 
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -177,4 +221,111 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
 
+
+
+
+
+//MARK: code for scrolling the textfield above the keyboard 
+
+/*- (void)registerForKeyboardNotifications
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+            selector:@selector(keyboardWasShown:)
+        name:UIKeyboardDidShowNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+        selector:@selector(keyboardWillBeHidden:)
+        name:UIKeyboardWillHideNotification object:nil];
+ 
+ CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+ 
+ UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+ scrollView.contentInset = contentInsets;
+ scrollView.scrollIndicatorInsets = contentInsets;
+ 
+ // If active text field is hidden by keyboard, scroll it so it's visible
+ // Your app might not need or want this behavior.
+ CGRect aRect = self.view.frame;
+ aRect.size.height -= kbSize.height;
+ if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
+ [self.scrollView scrollRectToVisible:activeField.frame animated:YES];
+ 
+} */
+
+
+func registerForKeyboardNotifications() {
+    NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 }
+
+
+ func keyboardWasShown(notification : NSNotification) {
+    print("self.view frame \(self.view.frame)")
+    print("self.scrollview frame \(self.scrollVw.frame)")
+    print("self.scrollview content size \(self.scrollVw.contentSize)")
+    print("self.scrollview content offset \(self.scrollVw.contentOffset)")
+    print("self.scrollview content Insets \(self.scrollVw.contentInset)")
+
+    let info : NSDictionary = notification.userInfo as! NSDictionary
+    let kbSize: CGSize? = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+    let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64, 0, kbSize!.height, 0.0)
+    scrollVw.contentInset = contentInsets
+    scrollVw.scrollIndicatorInsets = contentInsets
+    var aRect: CGRect = view.frame
+    aRect.size.height -= (kbSize?.height)!
+    if !aRect.contains(activeField.frame.origin) {
+        scrollVw.scrollRectToVisible(activeField.frame, animated: true)
+        print("self.view frame after\(self.view.frame)")
+        print("self.scrollview frame after\(self.scrollVw.frame)")
+        print("self.scrollview content size after \(self.scrollVw.contentSize)")
+        print("self.scrollview content offset after \(self.scrollVw.contentOffset)")
+        print("self.scrollview content Insets after \(self.scrollVw.contentInset)")
+    }
+    
+    
+}
+
+func keyboardWillBeHidden(notification : NSNotification) {
+ //   let contentInsets: UIEdgeInsets = UIEdgeInsets.zero
+    let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64, 0, 0, 0.0)
+    scrollVw.contentInset = contentInsets
+    scrollVw.scrollIndicatorInsets = contentInsets
+    
+  /*  if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        let viewHeight = self.view.frame.height
+        self.view.frame = CGRect(x: self.view.frame.origin.x,
+                                 y: self.view.frame.origin.y,
+                                 width: self.view.frame.width,
+                                 height: viewHeight + keyboardSize.height)
+    } else {
+        debugPrint("We're about to hide the keyboard and the keyboard size is nil. Now is the rapture.")
+    }   */
+}
+
+ 
+    
+ /*   func keyboardWasShown(_ aNotification: Notification) {
+    //    var info: [AnyHashable: Any]? = aNotification.userInfo
+    //    var kbSize: CGSize? = (info?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+    //    var bkgndRect: CGRect? = activeField.superview?.frame
+    //    bkgndRect?.size.height += (kbSize?.height)!
+    //    activeField.superview?.frame = bkgndRect!
+   //     scrollVw.setContentOffset(CGPoint(x: CGFloat(0.0), y: CGFloat(activeField.frame.origin.y - (kbSize?.height)!)), animated: true)
+        
+        if let keyboardSize = (aNotification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+            let window = self.view.window?.frame {
+            // We're not just minusing the kb height from the view height because
+            // the view could already have been resized for the keyboard before
+            self.view.frame = CGRect(x: self.view.frame.origin.x,
+                                     y: self.view.frame.origin.y,
+                                     width: self.view.frame.width,
+                                     height: window.origin.y + window.height - keyboardSize.height)
+        } else {
+            debugPrint("We're showing the keyboard and either the keyboard size or window is nil: panic widely.")
+        }
+    }  */
+
+}
+
+
+
