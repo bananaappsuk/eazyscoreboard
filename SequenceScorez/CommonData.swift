@@ -12,4 +12,11 @@ class CommonData: NSObject {
     static var gameSelected : String = ""
     static var playerNames :  [String : [String]] = [String : [String]]()
     
+    
+    struct game {
+        static var data : [ String : [String : [String]] ] = [:]
+    }
+    
+    
+    
 }

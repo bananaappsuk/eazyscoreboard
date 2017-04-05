@@ -1,3 +1,4 @@
+
 //
 //  ScoreViewController.swift
 //  SequenceScorez
@@ -32,6 +33,13 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
 
    
     override func awakeFromNib() {
+        
+      
+        
+        // as we came here let us make a copy of the players in the CommonData.playerNames dictionary with key "copyOfPlayerNames" as key
+        let tempForPlayerNames = CommonData.playerNames[CommonData.gameSelected]
+        CommonData.playerNames["copyOfPlayerNames"] = tempForPlayerNames
+        
      let k = CommonData.gameSelected
         if let total = CommonData.playerNames[k]?.count {
              scrollVw = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
@@ -39,6 +47,15 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
             scrollVw.contentSize = CGSize(width: CGFloat(40 + (75*total) + (10*total-1)), height: self.view.frame.height-64)
             self.view.addSubview(scrollVw)
     
+            // this is for initializing the array with false
+            let str = CommonData.gameSelected
+            let keyString = str + "boolArrayForDeletedPlayers"
+            var tempArray : [String] = []
+            for  _ in 0..<total {
+                tempArray.append("not")
+            }
+            CommonData.playerNames[keyString] = tempArray
+            print("bool for player names \(CommonData.playerNames[keyString])")
             
             for i in 0..<total {
                let y = CGFloat(20)
@@ -88,6 +105,11 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
         if let total = CommonData.playerNames[k]?.count {
       //      yAxis = 20 + 75 + ( 20 * CGFloat(yAxisPositionDecider) )
             yAxis = yAxis + 1
+            
+            // this is to show that the left one player is the winner
+           
+            var tempForTotalLabelNames = self.totalLabelsArray
+
             for i in 0..<total {
                 let txtField = UITextField(frame: CGRect(x: 20+i*75+10*i, y: Int(yAxis), width: 75, height: 40))
                 txtField.tag = i
@@ -112,7 +134,9 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
                         txtField.removeFromSuperview()
                         totalLabelsArray[i].backgroundColor = UIColor.black
                         totalLabelsArray[i].textColor = UIColor.white
-                        
+                        let str = CommonData.gameSelected
+                        let keyString = str + "boolArrayForDeletedPlayers"
+                        if CommonData.playerNames[keyString]![i] == "not" {
                         let alertMessage = UIAlertController(title: "\((CommonData.playerNames[CommonData.gameSelected]?[i])!) lost", message: "Do you want to add  \((CommonData.playerNames[CommonData.gameSelected]?[i])!) again", preferredStyle: .alert)
                         
                         alertMessage.addTextField(configurationHandler: { (txtField) in
@@ -125,10 +149,61 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
                             self.totalLabelsArray[i].backgroundColor = UIColor.clear
                             self.totalLabelsArray[i].textColor = UIColor.black
                             })
-                        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+                        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: {
+                       (_) in
+                        
+                            // present another alert to the user saying you are not re-adding the player to the game again so we are deleting the player from the game 
+                            let inneralertMessage = UIAlertController(title: "\((CommonData.playerNames[CommonData.gameSelected]?[i])!) will be delelted from the game", message: "Are you sure", preferredStyle: .alert)
+                            let okButtonInnerAlertMessage = UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                                
+                                tempForTotalLabelNames.remove(at: i)
+                                let nameToDelete = CommonData.playerNames[CommonData.gameSelected]?[i]
+                                var tempForWorkingInLoop = CommonData.playerNames["copyOfPlayerNames"]
+                                
+                                // create an array of bool in CommonData.playerNmaes["boolarrayofdeletedplayers"]
+                                let str = CommonData.gameSelected
+                                let keyString = str + "boolArrayForDeletedPlayers"
+                                CommonData.playerNames[keyString]?[i] = "notnot"
+                                
+                                for ii in 0...(CommonData.playerNames["copyOfPlayerNames"]?.count)!-1 {
+                                    if let nameFromArrayOfcopy = CommonData.playerNames["copyOfPlayerNames"]?[ii] {
+                                        if  nameToDelete == nameFromArrayOfcopy {
+                                            tempForWorkingInLoop?.remove(at: ii)
+                                        }
+                                    }
+                                }
+                                CommonData.playerNames["copyOfPlayerNames"] = tempForWorkingInLoop
+                                if CommonData.playerNames["copyOfPlayerNames"]?.count == 1 {
+                                    
+                                    //take the time stamp and save it in game -> timestamps of common data
+                                    var tempTimestampArray:[String] = []
+                                    let date = NSDate()
+                                    let dateFormatter = DateFormatter()
+                                    dateFormatter.dateFormat = "MM-dd-yyyy hh:mm:ss"
+                                    let dateInStr = dateFormatter.string(from: date as Date)
+                                    tempTimestampArray.append(dateInStr)
+                                    CommonData.playerNames["timestamp"] = tempTimestampArray
+                                    
+                                    // present the winner as only one left outside that is not added to the losers list
+
+                                    let alertMessageFinalSuccessMessage = UIAlertController(title: "\((CommonData.playerNames["copyOfPlayerNames"]?.first)!) Won", message: "Congratulations", preferredStyle: .alert)
+                                    let okButtonFinalSuccessMessage = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                    alertMessageFinalSuccessMessage.addAction(okButtonFinalSuccessMessage)
+                                    self.present(alertMessageFinalSuccessMessage, animated: true, completion: nil)
+                                }
+                            })
+                            let cancelButtonInnerAlertMessage = UIAlertAction(title: "Cancel", style: .destructive, handler: { (_) in
+                            })
+                            inneralertMessage.addAction(okButtonInnerAlertMessage)
+                            inneralertMessage.addAction(cancelButtonInnerAlertMessage)
+                            self.present(inneralertMessage, animated: true, completion: nil)
+
+                        })
                         alertMessage.addAction(addButon)
                         alertMessage.addAction(cancelButton)
                         present(alertMessage, animated: true, completion: nil)
+                        }
+                    
                     }else if sumInInt! >= 0.8*totalSumAllowedInInt {
                         txtField.backgroundColor = UIColor.red
                     } else if sumInInt! >= 0.6*totalSumAllowedInInt {
@@ -138,6 +213,8 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 }
+            self.totalLabelsArray = tempForTotalLabelNames
+
             yAxis = yAxis + 40
             scrollVw.contentSize.height = yAxis
             

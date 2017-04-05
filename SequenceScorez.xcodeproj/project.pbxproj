@@ -13,6 +13,7 @@
 		757AA9D71E866BFB008453AB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757AA9D31E866BFB008453AB /* Bolts.framework */; };
 		757AA9D81E866BFB008453AB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757AA9D41E866BFB008453AB /* FBSDKLoginKit.framework */; };
 		757AA9D91E866BFB008453AB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757AA9D51E866BFB008453AB /* FBSDKCoreKit.framework */; };
+		7580F0791E94032500F28EBD /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580F0781E94032500F28EBD /* LeaderboardViewController.swift */; };
 		75CF85211E4ADC0C00697183 /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF85201E4ADC0C00697183 /* MenuDetailViewController.swift */; };
 		75CF85231E4B90FB00697183 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF85221E4B90FB00697183 /* ScoreViewController.swift */; };
 		75CF85251E4B985600697183 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF85241E4B985600697183 /* CommonData.swift */; };
@@ -38,6 +39,7 @@
 		757AA9D31E866BFB008453AB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		757AA9D41E866BFB008453AB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		757AA9D51E866BFB008453AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		7580F0781E94032500F28EBD /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		75CF85201E4ADC0C00697183 /* MenuDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		75CF85221E4B90FB00697183 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		75CF85241E4B985600697183 /* CommonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				75FC534F1E45BF2200F4EB29 /* SliderRootViewController.swift */,
 				75FC53711E463B7E00F4EB29 /* LeftViewController.swift */,
 				75FC53041E4309EA00F4EB29 /* FirstViewController.swift */,
+				7580F0781E94032500F28EBD /* LeaderboardViewController.swift */,
 				75FC53061E4309EA00F4EB29 /* SecondViewController.swift */,
 				7557A6BC1E473676001A5CDC /* CustomTableViewCell.swift */,
 				75CF85201E4ADC0C00697183 /* MenuDetailViewController.swift */,
@@ -216,6 +219,7 @@
 			files = (
 				7557A6BD1E473676001A5CDC /* CustomTableViewCell.swift in Sources */,
 				75CF85231E4B90FB00697183 /* ScoreViewController.swift in Sources */,
+				7580F0791E94032500F28EBD /* LeaderboardViewController.swift in Sources */,
 				75CF85251E4B985600697183 /* CommonData.swift in Sources */,
 				75FC53071E4309EA00F4EB29 /* SecondViewController.swift in Sources */,
 				75FC534C1E45A7A200F4EB29 /* SlideMenuController.swift in Sources */,

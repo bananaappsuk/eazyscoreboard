@@ -21,7 +21,12 @@ class FirstViewController: UIViewController, UITableViewDelegate,UITableViewData
    // Outlets 
     @IBOutlet weak var tableView : UITableView!
     @IBOutlet weak var btnEdit : UIButton!
-    //variables
+    @IBOutlet weak var rummyBtn : UIButton!
+    @IBOutlet weak var cardsGameBtn : UIButton!
+    @IBOutlet weak var teenpattiBtn : UIButton!
+    @IBOutlet weak var setsGameBtn : UIButton!
+    @IBOutlet weak var noRecordsToShowLabel : UILabel!
+    // global variable as it is decalred static 
     static var menus = [String]()
     
     
@@ -33,6 +38,7 @@ class FirstViewController: UIViewController, UITableViewDelegate,UITableViewData
         set {
             
             FirstViewController.menus.append(newValue)
+            checkIfGameRecordsAreNil()
             tableView.reloadData()
         }
     }
@@ -43,9 +49,18 @@ class FirstViewController: UIViewController, UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        //applying edge shadows for the buttons
+        
+        rummyBtn.fineTuneTheBordersOfButton()
+        cardsGameBtn.fineTuneTheBordersOfButton()
+        teenpattiBtn.fineTuneTheBordersOfButton()
+        setsGameBtn.fineTuneTheBordersOfButton()
+        
         print("view did load is fired")
-        // Do any additional setup after loading the view, typically from a nib.
+        
         print("User access token is \(FBSDKAccessToken.current())")
         print("User id is \(FBSDKAccessToken.current().userID)")
         print("app id is \(FBSDKAccessToken.current().appID)")
@@ -54,11 +69,20 @@ class FirstViewController: UIViewController, UITableViewDelegate,UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         print("view will appear is fired")
-        
+        checkIfGameRecordsAreNil()
+      
+    }
+    
+    func checkIfGameRecordsAreNil() {
+        if FirstViewController.menus.count > 0 {
+            noRecordsToShowLabel.alpha = 0
+        } else {
+            noRecordsToShowLabel.alpha = 1.0
+        }
     }
 
    @IBAction func addANewRow() {
-        let alert = UIAlertController(title: "Enter the Name", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Enter a Game Name", message: nil, preferredStyle: .alert)
         alert.addTextField { (mytextField) in
             mytextField.keyboardType = UIKeyboardType.alphabet
         }
@@ -69,7 +93,6 @@ class FirstViewController: UIViewController, UITableViewDelegate,UITableViewData
         }))
         present(alert, animated: true, completion: nil)
     }
-    
     
 
     
@@ -171,8 +194,26 @@ class FirstViewController: UIViewController, UITableViewDelegate,UITableViewData
                     CommonData.gameSelected = gameName
                 }
             }
-          
-            
+        } else if segue.identifier == "fromrummybutton" {
+            if let vc = segue.destination as? SecondViewController {
+                vc.gameSelected = "rummy"
+                CommonData.gameSelected = "rummy"
+            }
+        } else if segue.identifier == "fromsevencardsgamebutton" {
+            if let vc = segue.destination as? SecondViewController {
+                vc.gameSelected = "sevencardgame"
+                CommonData.gameSelected = "sevencardgame"
+            }
+        } else if segue.identifier == "fromteenpattibutton" {
+            if let vc = segue.destination as? SecondViewController {
+                vc.gameSelected = "teenpatti"
+                CommonData.gameSelected = "teenpatti"
+            }
+        } else if segue.identifier == "fromsetsgamebutton" {
+            if let vc = segue.destination as? SecondViewController {
+                vc.gameSelected = "sets"
+                CommonData.gameSelected = "sets"
+            }
         }
     }
     
@@ -189,5 +230,19 @@ extension UIImageView {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
         }
+    }
+}
+
+
+extension UIButton {
+    
+    public func fineTuneTheBordersOfButton() {
+      //  self.layer.borderColor = UIColor.darkGray.cgColor
+      //  self.layer.borderWidth = 3.0
+        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 2, right: 3)
+        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.layer.shadowOpacity = 0.8
+        self.layer.shadowRadius = 5.0
+        self.layer.shadowColor = UIColor.darkGray.cgColor
     }
 }
