@@ -46,6 +46,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let textField : UITextField = (alert.textFields?.first)!
             CommonData.playerNames[self.gameSelected]?.append(textField.text!)
             self.tableView.reloadData()
+            
         }))
         present(alert, animated: true, completion: nil)
         

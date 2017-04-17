@@ -1,0 +1,18 @@
+PODS:
+  - RAMAnimatedTabBarController (2.0.13)
+  - SwiftyButton (0.6.0)
+  - WCLShineButton (1.0.3)
+
+DEPENDENCIES:
+  - RAMAnimatedTabBarController (~> 2.0.13)
+  - SwiftyButton
+  - WCLShineButton
+
+SPEC CHECKSUMS:
+  RAMAnimatedTabBarController: 2510f3b66954c3f77ea1042a35d34df8f5f3b604
+  SwiftyButton: 4c9b61c499f172971a1b8c2eebbbdc20a26d8a08
+  WCLShineButton: 2ace5d1fcb08d06eaeaefc31ef211bfbd0f0a743
+
+PODFILE CHECKSUM: 190c3c18fa4338f0f97433249d4e8b51b40aac13
+
+COCOAPODS: 1.2.1

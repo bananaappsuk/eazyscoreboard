@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		751F42D71E4DAC49001B5803 /* gameimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 751F42D61E4DAC49001B5803 /* gameimage.png */; };
 		7557A6BD1E473676001A5CDC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557A6BC1E473676001A5CDC /* CustomTableViewCell.swift */; };
-		757AA9D61E866BFB008453AB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757AA9D21E866BFB008453AB /* FBSDKShareKit.framework */; };
-		757AA9D71E866BFB008453AB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757AA9D31E866BFB008453AB /* Bolts.framework */; };
-		757AA9D81E866BFB008453AB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757AA9D41E866BFB008453AB /* FBSDKLoginKit.framework */; };
-		757AA9D91E866BFB008453AB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757AA9D51E866BFB008453AB /* FBSDKCoreKit.framework */; };
 		7580F0791E94032500F28EBD /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580F0781E94032500F28EBD /* LeaderboardViewController.swift */; };
+		7580F07B1E96A10D00F28EBD /* DetailedLeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580F07A1E96A10D00F28EBD /* DetailedLeaderboardViewController.swift */; };
+		7580F07D1E96A30A00F28EBD /* DetailLeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580F07C1E96A30A00F28EBD /* DetailLeaderboardTableViewCell.swift */; };
+		75854D261EA37DD900BCF762 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75854D221EA37DD900BCF762 /* Bolts.framework */; };
+		75854D271EA37DD900BCF762 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75854D231EA37DD900BCF762 /* FBSDKCoreKit.framework */; };
+		75854D281EA37DD900BCF762 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75854D241EA37DD900BCF762 /* FBSDKLoginKit.framework */; };
+		75854D291EA37DD900BCF762 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75854D251EA37DD900BCF762 /* FBSDKShareKit.framework */; };
+		75A2BCF31EA5037500E01D41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2BCF21EA5037500E01D41 /* HomeViewController.swift */; };
+		75A2BCF61EA537DE00E01D41 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2BCF51EA537DE00E01D41 /* NewGameViewController.swift */; };
+		75A2BCF81EA538EE00E01D41 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2BCF71EA538EE00E01D41 /* UserDetailsViewController.swift */; };
 		75CF85211E4ADC0C00697183 /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF85201E4ADC0C00697183 /* MenuDetailViewController.swift */; };
 		75CF85231E4B90FB00697183 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF85221E4B90FB00697183 /* ScoreViewController.swift */; };
 		75CF85251E4B985600697183 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF85241E4B985600697183 /* CommonData.swift */; };
@@ -29,17 +34,24 @@
 		75FC534E1E45B73400F4EB29 /* NavigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC534D1E45B73400F4EB29 /* NavigViewController.swift */; };
 		75FC53501E45BF2200F4EB29 /* SliderRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC534F1E45BF2200F4EB29 /* SliderRootViewController.swift */; };
 		75FC53721E463B7E00F4EB29 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC53711E463B7E00F4EB29 /* LeftViewController.swift */; };
+		88FD4ECA0BA454C61278D784 /* Pods_SequenceScorez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3B4970C3949051AEAC8272 /* Pods_SequenceScorez.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43DFA556E9A816F5C7440FCB /* Pods-SequenceScorez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SequenceScorez.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SequenceScorez/Pods-SequenceScorez.debug.xcconfig"; sourceTree = "<group>"; };
 		751F42D61E4DAC49001B5803 /* gameimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameimage.png; sourceTree = "<group>"; };
 		7557A6BB1E467938001A5CDC /* SequenceScorez.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SequenceScorez.entitlements; sourceTree = "<group>"; };
 		7557A6BC1E473676001A5CDC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		757AA9D21E866BFB008453AB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
-		757AA9D31E866BFB008453AB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
-		757AA9D41E866BFB008453AB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		757AA9D51E866BFB008453AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		7580F0781E94032500F28EBD /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		7580F07A1E96A10D00F28EBD /* DetailedLeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedLeaderboardViewController.swift; sourceTree = "<group>"; };
+		7580F07C1E96A30A00F28EBD /* DetailLeaderboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLeaderboardTableViewCell.swift; sourceTree = "<group>"; };
+		75854D221EA37DD900BCF762 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		75854D231EA37DD900BCF762 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		75854D241EA37DD900BCF762 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		75854D251EA37DD900BCF762 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		75A2BCF21EA5037500E01D41 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		75A2BCF51EA537DE00E01D41 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
+		75A2BCF71EA538EE00E01D41 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		75CF85201E4ADC0C00697183 /* MenuDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		75CF85221E4B90FB00697183 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		75CF85241E4B985600697183 /* CommonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
@@ -57,6 +69,8 @@
 		75FC534D1E45B73400F4EB29 /* NavigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigViewController.swift; sourceTree = "<group>"; };
 		75FC534F1E45BF2200F4EB29 /* SliderRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderRootViewController.swift; sourceTree = "<group>"; };
 		75FC53711E463B7E00F4EB29 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		A43303156E9509D0AFEDFB61 /* Pods-SequenceScorez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SequenceScorez.release.xcconfig"; path = "Pods/Target Support Files/Pods-SequenceScorez/Pods-SequenceScorez.release.xcconfig"; sourceTree = "<group>"; };
+		CB3B4970C3949051AEAC8272 /* Pods_SequenceScorez.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SequenceScorez.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +78,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				757AA9D61E866BFB008453AB /* FBSDKShareKit.framework in Frameworks */,
-				757AA9D91E866BFB008453AB /* FBSDKCoreKit.framework in Frameworks */,
-				757AA9D71E866BFB008453AB /* Bolts.framework in Frameworks */,
-				757AA9D81E866BFB008453AB /* FBSDKLoginKit.framework in Frameworks */,
+				88FD4ECA0BA454C61278D784 /* Pods_SequenceScorez.framework in Frameworks */,
+				75854D271EA37DD900BCF762 /* FBSDKCoreKit.framework in Frameworks */,
+				75854D291EA37DD900BCF762 /* FBSDKShareKit.framework in Frameworks */,
+				75854D281EA37DD900BCF762 /* FBSDKLoginKit.framework in Frameworks */,
+				75854D261EA37DD900BCF762 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3877DD595E58C15834EA61FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB3B4970C3949051AEAC8272 /* Pods_SequenceScorez.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B3D5CD7B1C32CEA191A5202 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43DFA556E9A816F5C7440FCB /* Pods-SequenceScorez.debug.xcconfig */,
+				A43303156E9509D0AFEDFB61 /* Pods-SequenceScorez.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7557A6BE1E4736A7001A5CDC /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,13 +114,23 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		75A2BCF41EA5038800E01D41 /* Modified Flow */ = {
+			isa = PBXGroup;
+			children = (
+				75A2BCF51EA537DE00E01D41 /* NewGameViewController.swift */,
+				75A2BCF71EA538EE00E01D41 /* UserDetailsViewController.swift */,
+				75A2BCF21EA5037500E01D41 /* HomeViewController.swift */,
+			);
+			name = "Modified Flow";
+			sourceTree = "<group>";
+		};
 		75CB7BB61E82E1BB008E0500 /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				757AA9D21E866BFB008453AB /* FBSDKShareKit.framework */,
-				757AA9D31E866BFB008453AB /* Bolts.framework */,
-				757AA9D41E866BFB008453AB /* FBSDKLoginKit.framework */,
-				757AA9D51E866BFB008453AB /* FBSDKCoreKit.framework */,
+				75854D221EA37DD900BCF762 /* Bolts.framework */,
+				75854D231EA37DD900BCF762 /* FBSDKCoreKit.framework */,
+				75854D241EA37DD900BCF762 /* FBSDKLoginKit.framework */,
+				75854D251EA37DD900BCF762 /* FBSDKShareKit.framework */,
 			);
 			name = framework;
 			sourceTree = "<group>";
@@ -99,6 +141,8 @@
 				75FC53011E4309EA00F4EB29 /* SequenceScorez */,
 				75FC53001E4309EA00F4EB29 /* Products */,
 				75CB7BB61E82E1BB008E0500 /* framework */,
+				6B3D5CD7B1C32CEA191A5202 /* Pods */,
+				3877DD595E58C15834EA61FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,11 +165,14 @@
 				75FC53711E463B7E00F4EB29 /* LeftViewController.swift */,
 				75FC53041E4309EA00F4EB29 /* FirstViewController.swift */,
 				7580F0781E94032500F28EBD /* LeaderboardViewController.swift */,
+				7580F07A1E96A10D00F28EBD /* DetailedLeaderboardViewController.swift */,
+				7580F07C1E96A30A00F28EBD /* DetailLeaderboardTableViewCell.swift */,
 				75FC53061E4309EA00F4EB29 /* SecondViewController.swift */,
 				7557A6BC1E473676001A5CDC /* CustomTableViewCell.swift */,
 				75CF85201E4ADC0C00697183 /* MenuDetailViewController.swift */,
 				75CF85221E4B90FB00697183 /* ScoreViewController.swift */,
 				75FC53081E4309EB00F4EB29 /* Main.storyboard */,
+				75A2BCF41EA5038800E01D41 /* Modified Flow */,
 				75FC534D1E45B73400F4EB29 /* NavigViewController.swift */,
 				7557A6BE1E4736A7001A5CDC /* Source */,
 				75FC530B1E4309EC00F4EB29 /* Assets.xcassets */,
@@ -144,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75FC53131E4309EC00F4EB29 /* Build configuration list for PBXNativeTarget "SequenceScorez" */;
 			buildPhases = (
+				39926013E4E76D5BFD657CB4 /* [CP] Check Pods Manifest.lock */,
 				75FC52FB1E4309E500F4EB29 /* Sources */,
 				75FC52FC1E4309E500F4EB29 /* Frameworks */,
 				75FC52FD1E4309E500F4EB29 /* Resources */,
+				2E48180DCEE4C1495ABA7CEF /* [CP] Embed Pods Frameworks */,
+				A73DB781E8AA8B369473E99D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,7 +220,7 @@
 					75FC52FE1E4309E500F4EB29 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = WP5H3UQ7P2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -212,11 +262,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E48180DCEE4C1495ABA7CEF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SequenceScorez/Pods-SequenceScorez-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39926013E4E76D5BFD657CB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A73DB781E8AA8B369473E99D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SequenceScorez/Pods-SequenceScorez-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		75FC52FB1E4309E500F4EB29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7580F07B1E96A10D00F28EBD /* DetailedLeaderboardViewController.swift in Sources */,
 				7557A6BD1E473676001A5CDC /* CustomTableViewCell.swift in Sources */,
 				75CF85231E4B90FB00697183 /* ScoreViewController.swift in Sources */,
 				7580F0791E94032500F28EBD /* LeaderboardViewController.swift in Sources */,
@@ -224,8 +323,12 @@
 				75FC53071E4309EA00F4EB29 /* SecondViewController.swift in Sources */,
 				75FC534C1E45A7A200F4EB29 /* SlideMenuController.swift in Sources */,
 				75FC53031E4309EA00F4EB29 /* AppDelegate.swift in Sources */,
+				75A2BCF81EA538EE00E01D41 /* UserDetailsViewController.swift in Sources */,
+				75A2BCF61EA537DE00E01D41 /* NewGameViewController.swift in Sources */,
+				7580F07D1E96A30A00F28EBD /* DetailLeaderboardTableViewCell.swift in Sources */,
 				75FC53051E4309EA00F4EB29 /* FirstViewController.swift in Sources */,
 				75FC534E1E45B73400F4EB29 /* NavigViewController.swift in Sources */,
+				75A2BCF31EA5037500E01D41 /* HomeViewController.swift in Sources */,
 				75CF85211E4ADC0C00697183 /* MenuDetailViewController.swift in Sources */,
 				75FC53721E463B7E00F4EB29 /* LeftViewController.swift in Sources */,
 				75FC53191E43127E00F4EB29 /* OpenVCViewController.swift in Sources */,
@@ -296,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -341,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -352,6 +455,7 @@
 		};
 		75FC53141E4309EC00F4EB29 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43DFA556E9A816F5C7440FCB /* Pods-SequenceScorez.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SequenceScorez/SequenceScorez.entitlements;
@@ -362,18 +466,20 @@
 					"$(PROJECT_DIR)/SequenceScorez",
 					"$(PROJECT_DIR)",
 				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = SequenceScorez/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.bananaapps.SequenceScorez;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9e538b8f-783e-44a5-a3a5-07559f5fdbc0";
+				PROVISIONING_PROFILE_SPECIFIER = "sequence score dev profile";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		75FC53151E4309EC00F4EB29 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A43303156E9509D0AFEDFB61 /* Pods-SequenceScorez.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SequenceScorez/SequenceScorez.entitlements;
@@ -386,10 +492,12 @@
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = SequenceScorez/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.bananaapps.SequenceScorez;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9e538b8f-783e-44a5-a3a5-07559f5fdbc0";
+				PROVISIONING_PROFILE_SPECIFIER = "sequence score dev profile";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
