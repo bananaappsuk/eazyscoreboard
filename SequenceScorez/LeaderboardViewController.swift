@@ -36,7 +36,7 @@ class LeaderboardViewController: UIViewController, UITabBarDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = FirstViewController.menus[indexPath.row]
-        if let timestamps = CommonData.playerNames["timestamp"]?.first {
+        if let timestamps = CommonData.sharedInstance.playerNames["timestamp"]?.first {
             cell.detailTextLabel?.text = timestamps
         } else {
             cell.detailTextLabel?.text = ""
@@ -63,7 +63,7 @@ class LeaderboardViewController: UIViewController, UITabBarDelegate, UITableView
         
         if  segue.identifier ==  "toDetail" {
         
-            if let dvc = segue.destination as? DetailedLeaderboardViewController, let game = (sender as? UITableViewCell)?.textLabel?.text , let playerNames = CommonData.playerNames[game] {
+            if let dvc = segue.destination as? DetailedLeaderboardViewController, let game = (sender as? UITableViewCell)?.textLabel?.text , let playerNames = CommonData.sharedInstance.playerNames[game] {
                   dvc.gameSelected = game
                   dvc.playerNmaes = playerNames
             }

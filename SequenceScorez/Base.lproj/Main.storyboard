@@ -333,6 +333,9 @@
                                         <real key="value" value="37"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="setsButtonPressedWithSender:" destination="BIr-On-3x5" eventType="touchUpInside" id="FRy-Nw-Ov1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6LS-iQ-owp" customClass="PressableButton" customModule="SwiftyButton">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -351,6 +354,9 @@
                                         <real key="value" value="37"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="luxButtonPressedWithSender:" destination="BIr-On-3x5" eventType="touchUpInside" id="xRE-26-3d4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ple-xE-Qhb" customClass="PressableButton" customModule="SwiftyButton">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -369,6 +375,9 @@
                                         <real key="value" value="37"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sequenceButtonPressedWithSender:" destination="BIr-On-3x5" eventType="touchUpInside" id="3sG-Vl-QDB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdQ-2T-FJu"/>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G26-F0-GPs" customClass="PressableButton" customModule="SwiftyButton">
@@ -395,6 +404,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="rummyButtonPressedWithSender:" destination="BIr-On-3x5" eventType="touchUpInside" id="jnQ-hF-I0l"/>
                                     <segue destination="GbT-g7-qMu" kind="show" id="TlY-zN-Ifg"/>
                                 </connections>
                             </button>
@@ -439,7 +449,7 @@
         <!--Game Name-->
         <scene sceneID="Bgh-B3-Tc5">
             <objects>
-                <viewController id="uSa-2g-A5Y" sceneMemberID="viewController">
+                <viewController id="uSa-2g-A5Y" customClass="GameListViewController" customModule="SequenceScorez" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kat-c1-8Ut"/>
                         <viewControllerLayoutGuide type="bottom" id="xdp-vN-PQc"/>
@@ -475,7 +485,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKh-nB-HF9">
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Mey-4D-1lX"/>
+                                    <constraint firstAttribute="height" constant="40" id="Mey-4D-1lX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="ADD NEW GAME">
@@ -487,7 +497,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="oIf-EQ-Q6o" kind="show" id="ien-0W-xt3"/>
+                                    <action selector="createANewGameWithSender:" destination="uSa-2g-A5Y" eventType="touchUpInside" id="Fa4-zu-8ej"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -495,16 +505,19 @@
                         <constraints>
                             <constraint firstItem="bkD-hc-yMJ" firstAttribute="leading" secondItem="Ryf-hP-0JZ" secondAttribute="leading" constant="20" id="854-eP-XtI"/>
                             <constraint firstAttribute="trailing" secondItem="bkD-hc-yMJ" secondAttribute="trailing" constant="20" id="A7n-VQ-JjG"/>
-                            <constraint firstItem="yKh-nB-HF9" firstAttribute="leading" secondItem="Ryf-hP-0JZ" secondAttribute="leading" constant="20" id="EHm-pv-Jef"/>
+                            <constraint firstItem="yKh-nB-HF9" firstAttribute="leading" secondItem="Ryf-hP-0JZ" secondAttribute="leading" constant="40" id="EHm-pv-Jef"/>
                             <constraint firstAttribute="trailing" secondItem="GmZ-ip-7G3" secondAttribute="trailing" constant="20" id="Qhk-cL-l8B"/>
                             <constraint firstItem="GmZ-ip-7G3" firstAttribute="top" secondItem="bkD-hc-yMJ" secondAttribute="bottom" constant="20" id="So3-Er-ij9"/>
-                            <constraint firstAttribute="trailing" secondItem="yKh-nB-HF9" secondAttribute="trailing" constant="20" id="Xdb-oh-Syu"/>
+                            <constraint firstAttribute="trailing" secondItem="yKh-nB-HF9" secondAttribute="trailing" constant="40" id="Xdb-oh-Syu"/>
                             <constraint firstItem="bkD-hc-yMJ" firstAttribute="top" secondItem="kat-c1-8Ut" secondAttribute="bottom" constant="40" id="sLF-TR-daA"/>
                             <constraint firstItem="GmZ-ip-7G3" firstAttribute="leading" secondItem="Ryf-hP-0JZ" secondAttribute="leading" constant="20" id="uCe-bi-o7T"/>
                             <constraint firstItem="xdp-vN-PQc" firstAttribute="top" secondItem="yKh-nB-HF9" secondAttribute="bottom" constant="30" id="way-SJ-R5Z"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Game Name" id="BwT-HP-b3u"/>
+                    <connections>
+                        <segue destination="oIf-EQ-Q6o" kind="show" identifier="toNewGameVC" id="6ze-3v-NbN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MS8-C6-YVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -531,6 +544,9 @@
                                 <state key="normal" title="ADD SCORE">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addScore" destination="oIf-EQ-Q6o" eventType="touchUpInside" id="7xv-7W-v9s"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwa-kn-7hW">
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -539,14 +555,19 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ug3-z2-w1s" kind="show" identifier="toUserDetailsVC" id="JbH-WY-b2C"/>
+                                    <action selector="addAPlayerWithSender:" destination="oIf-EQ-Q6o" eventType="touchUpInside" id="OqP-zx-dbA"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBu-g1-yP4"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bwa-kn-7hW" firstAttribute="leading" secondItem="7gz-eO-DIp" secondAttribute="trailing" constant="20" id="1Jt-rF-ePt"/>
+                            <constraint firstItem="GBu-g1-yP4" firstAttribute="leading" secondItem="afx-ml-4XV" secondAttribute="leading" id="COW-nA-LlW"/>
+                            <constraint firstAttribute="trailing" secondItem="GBu-g1-yP4" secondAttribute="trailing" id="EXd-F5-lrf"/>
+                            <constraint firstItem="GBu-g1-yP4" firstAttribute="top" secondItem="km7-zr-Urp" secondAttribute="bottom" id="NSy-HW-HFh"/>
                             <constraint firstItem="7gz-eO-DIp" firstAttribute="centerY" secondItem="bwa-kn-7hW" secondAttribute="centerY" id="Q2j-tA-j6V"/>
+                            <constraint firstItem="bwa-kn-7hW" firstAttribute="top" secondItem="GBu-g1-yP4" secondAttribute="bottom" constant="8" id="U0n-jF-d5X"/>
                             <constraint firstItem="7gz-eO-DIp" firstAttribute="leading" secondItem="afx-ml-4XV" secondAttribute="leading" constant="40" id="b7Y-rz-Mpa"/>
                             <constraint firstItem="bwa-kn-7hW" firstAttribute="width" secondItem="7gz-eO-DIp" secondAttribute="width" id="oiT-AK-7hQ"/>
                             <constraint firstAttribute="trailing" secondItem="bwa-kn-7hW" secondAttribute="trailing" constant="40" id="qhQ-mL-jd8"/>
@@ -558,10 +579,16 @@
                     <navigationItem key="navigationItem" id="fbi-9W-FK5">
                         <barButtonItem key="rightBarButtonItem" image="settings" id="u85-Kx-hfz"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btnAddPlayer" destination="bwa-kn-7hW" id="bPG-RD-vOY"/>
+                        <outlet property="btnAddScore" destination="7gz-eO-DIp" id="Og6-9H-r6d"/>
+                        <outlet property="scrollVw" destination="GBu-g1-yP4" id="KMO-PZ-1QN"/>
+                        <segue destination="Ug3-z2-w1s" kind="show" identifier="toUserDetailVC" id="hK2-9K-WsM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7o-Xy-Tnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3801" y="1388"/>
+            <point key="canvasLocation" x="3800.8000000000002" y="1387.5562218890557"/>
         </scene>
         <!--User Details View Controller-->
         <scene sceneID="zxe-16-qfM">
@@ -575,8 +602,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IQi-Mv-KX1">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultuser" translatesAutoresizingMaskIntoConstraints="NO" id="IQi-Mv-KX1">
                                 <frame key="frameInset" minX="137" minY="88" width="100" height="100"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="gDJ-go-nmN"/>
                                     <constraint firstAttribute="width" constant="100" id="jpW-P1-yCH"/>
@@ -586,6 +614,9 @@
                                         <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="R6s-qW-FWQ" appends="YES" id="L9b-aB-T1o"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4vW-n5-TuF">
                                 <frame key="frameInset" minX="40" minY="208" width="295" height="40"/>
@@ -655,6 +686,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXr-35-tau" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="R6s-qW-FWQ">
+                    <connections>
+                        <action selector="showPickerViewControllerWithGestureRecognizer:" destination="Ug3-z2-w1s" id="N52-6Z-0te"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4601" y="1388"/>
         </scene>
@@ -1290,6 +1326,7 @@
         <image name="add" width="64" height="64"/>
         <image name="cardsbg.jpg" width="1920" height="1200"/>
         <image name="defaultplayer" width="37" height="37"/>
+        <image name="defaultuser" width="64" height="64"/>
         <image name="edit" width="32" height="32"/>
         <image name="first" width="30" height="30"/>
         <image name="group" width="32" height="32"/>

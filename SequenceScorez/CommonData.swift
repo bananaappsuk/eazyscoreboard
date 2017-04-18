@@ -8,15 +8,46 @@
 
 import UIKit
 
-class CommonData: NSObject {
-    static var gameSelected : String = ""
-    static var playerNames :  [String : [String]] = [String : [String]]()
+final class CommonData: NSObject {
     
-    
-    struct game {
-        static var data : [ String : [String : [String]] ] = [:]
+    // can't init this class from outside
+    private override init() {
+      
     }
+    
+    //MARK: shared instance
+  static let sharedInstance : CommonData = CommonData()
+
+    
+    
+    //MARK: local variables
+     var gameSelected : String = ""
+     var playerNames :  [String : [String]] = [String : [String]]()
+    
+    var games : [String : [Game]] = ["games": []]
+  //  var allDataOfAGameType : [String : [Game]] = [:]
+    var data : [ String :     [ String : [Game] ]   ] = [:]
+       //     { "sequence" :   { "games" : [game1, game2] }  }
+    var sequenceData : [String : [Game]] = [String : [Game]]()
     
     
     
 }
+
+
+ /* 
+ data -> [rummy,
+            sets,
+            lux,
+            sequence]
+ 
+ rummmy -> [ game1 ,
+             game2 ,
+             game3 ]
+ 
+ game1 -> [  players : [player1,player2,player3]
+             scores   : [player1score , player2score, player3score]
+             isWinner : [false, true, false]
+          ]
+ 
+ */

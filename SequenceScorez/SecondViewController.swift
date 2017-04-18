@@ -44,7 +44,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (action : UIAlertAction) in
             let textField : UITextField = (alert.textFields?.first)!
-            CommonData.playerNames[self.gameSelected]?.append(textField.text!)
+            CommonData.sharedInstance.playerNames[self.gameSelected]?.append(textField.text!)
             self.tableView.reloadData()
             
         }))
@@ -88,13 +88,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableViewMenu.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         // create an entry in the static dictionary for the selected game 
-        if CommonData.playerNames[gameSelected]  == nil {
-            CommonData.playerNames[gameSelected] = []
+        if CommonData.sharedInstance.playerNames[gameSelected]  == nil {
+            CommonData.sharedInstance.playerNames[gameSelected] = []
         }
         table1DataForRows.append(gameSelected)
         table1DataForRows.append("Game Type")
         table1DataForRows.append("Calculation Mode")
-        print("static variables can hold its contents even the vc is removed from memory \(CommonData.playerNames)")
+        print("static variables can hold its contents even the vc is removed from memory \(CommonData.sharedInstance.playerNames)")
         print("child 1 view did load fired")
         // Do any additional setup after loading the view, typically from a nib.
         pickerData = ["Default", "Scores add to Zero", "Winer takes it all", "Highest Wins", "Lowest Wins"]
@@ -146,7 +146,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if tableView.tag == 1 {
            return 3
         } else if tableView.tag == 2 {
-        return (CommonData.playerNames[gameSelected]?.count)!
+        return (CommonData.sharedInstance.playerNames[gameSelected]?.count)!
         }
         return 0
     }
@@ -168,8 +168,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.tag = indexPath.row
             //  first check if there is a user photo in the disk
             let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-            if (CommonData.playerNames[gameSelected]?.count)! > 0 {
-                let filePath = paths[0] + "/" + (CommonData.playerNames[gameSelected]?[indexPath.row])! + ".png"
+            if (CommonData.sharedInstance.playerNames[gameSelected]?.count)! > 0 {
+                let filePath = paths[0] + "/" + (CommonData.sharedInstance.playerNames[gameSelected]?[indexPath.row])! + ".png"
                 let dataOfPhoto = NSData(contentsOfFile: filePath)
                 if dataOfPhoto != nil {
                     let image = UIImage(data: dataOfPhoto as! Data)
@@ -183,7 +183,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             
             
-            cell.lblPlayerName.text = CommonData.playerNames[gameSelected]?[indexPath.row]
+            cell.lblPlayerName.text = CommonData.sharedInstance.playerNames[gameSelected]?[indexPath.row]
           return cell
         }
         return UITableViewCell()
@@ -202,7 +202,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            CommonData.playerNames[gameSelected]?.remove(at: indexPath.row)
+            CommonData.sharedInstance.playerNames[gameSelected]?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
         }
     }
@@ -305,7 +305,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMenuDetailViewController" {
             let indx = tableViewMenu.indexPathForSelectedRow
-            let cell = tableViewMenu.cellForRow(at: indx!)
+            _ = tableViewMenu.cellForRow(at: indx!)
             let destinationVC = segue.destination as? MenuDetailViewController
             if indx?.row == 1 {
                 destinationVC?.stringFromBeforeVC = "Game Type"

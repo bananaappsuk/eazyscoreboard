@@ -19,6 +19,8 @@
 		75A2BCF31EA5037500E01D41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2BCF21EA5037500E01D41 /* HomeViewController.swift */; };
 		75A2BCF61EA537DE00E01D41 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2BCF51EA537DE00E01D41 /* NewGameViewController.swift */; };
 		75A2BCF81EA538EE00E01D41 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2BCF71EA538EE00E01D41 /* UserDetailsViewController.swift */; };
+		75A2BCFA1EA5CB9300E01D41 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2BCF91EA5CB9300E01D41 /* GameListViewController.swift */; };
+		75A2BCFC1EA5CBBB00E01D41 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2BCFB1EA5CBBB00E01D41 /* Game.swift */; };
 		75CF85211E4ADC0C00697183 /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF85201E4ADC0C00697183 /* MenuDetailViewController.swift */; };
 		75CF85231E4B90FB00697183 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF85221E4B90FB00697183 /* ScoreViewController.swift */; };
 		75CF85251E4B985600697183 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF85241E4B985600697183 /* CommonData.swift */; };
@@ -52,6 +54,8 @@
 		75A2BCF21EA5037500E01D41 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		75A2BCF51EA537DE00E01D41 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		75A2BCF71EA538EE00E01D41 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		75A2BCF91EA5CB9300E01D41 /* GameListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
+		75A2BCFB1EA5CBBB00E01D41 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		75CF85201E4ADC0C00697183 /* MenuDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		75CF85221E4B90FB00697183 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		75CF85241E4B985600697183 /* CommonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
@@ -117,9 +121,11 @@
 		75A2BCF41EA5038800E01D41 /* Modified Flow */ = {
 			isa = PBXGroup;
 			children = (
+				75A2BCFB1EA5CBBB00E01D41 /* Game.swift */,
+				75A2BCF21EA5037500E01D41 /* HomeViewController.swift */,
+				75A2BCF91EA5CB9300E01D41 /* GameListViewController.swift */,
 				75A2BCF51EA537DE00E01D41 /* NewGameViewController.swift */,
 				75A2BCF71EA538EE00E01D41 /* UserDetailsViewController.swift */,
-				75A2BCF21EA5037500E01D41 /* HomeViewController.swift */,
 			);
 			name = "Modified Flow";
 			sourceTree = "<group>";
@@ -320,7 +326,9 @@
 				75CF85231E4B90FB00697183 /* ScoreViewController.swift in Sources */,
 				7580F0791E94032500F28EBD /* LeaderboardViewController.swift in Sources */,
 				75CF85251E4B985600697183 /* CommonData.swift in Sources */,
+				75A2BCFC1EA5CBBB00E01D41 /* Game.swift in Sources */,
 				75FC53071E4309EA00F4EB29 /* SecondViewController.swift in Sources */,
+				75A2BCFA1EA5CB9300E01D41 /* GameListViewController.swift in Sources */,
 				75FC534C1E45A7A200F4EB29 /* SlideMenuController.swift in Sources */,
 				75FC53031E4309EA00F4EB29 /* AppDelegate.swift in Sources */,
 				75A2BCF81EA538EE00E01D41 /* UserDetailsViewController.swift in Sources */,

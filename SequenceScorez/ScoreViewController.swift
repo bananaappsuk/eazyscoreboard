@@ -33,29 +33,26 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
 
    
     override func awakeFromNib() {
+              // as we came here let us make a copy of the players in the CommonData.playerNames dictionary with key "copyOfPlayerNames" as key
+        let tempForPlayerNames = CommonData.sharedInstance.playerNames[CommonData.sharedInstance.gameSelected]
+        CommonData.sharedInstance.playerNames["copyOfPlayerNames"] = tempForPlayerNames
         
-      
-        
-        // as we came here let us make a copy of the players in the CommonData.playerNames dictionary with key "copyOfPlayerNames" as key
-        let tempForPlayerNames = CommonData.playerNames[CommonData.gameSelected]
-        CommonData.playerNames["copyOfPlayerNames"] = tempForPlayerNames
-        
-     let k = CommonData.gameSelected
-        if let total = CommonData.playerNames[k]?.count {
+     let k = CommonData.sharedInstance.gameSelected
+        if let total = CommonData.sharedInstance.playerNames[k]?.count {
              scrollVw = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
             scrollVw.isUserInteractionEnabled = true
             scrollVw.contentSize = CGSize(width: CGFloat(40 + (75*total) + (10*total-1)), height: self.view.frame.height-64)
             self.view.addSubview(scrollVw)
     
             // this is for initializing the array with false
-            let str = CommonData.gameSelected
+            let str = CommonData.sharedInstance.gameSelected
             let keyString = str + "boolArrayForDeletedPlayers"
             var tempArray : [String] = []
             for  _ in 0..<total {
                 tempArray.append("not")
             }
-            CommonData.playerNames[keyString] = tempArray
-            print("bool for player names \(CommonData.playerNames[keyString])")
+            CommonData.sharedInstance.playerNames[keyString] = tempArray
+            print("bool for player names \(CommonData.sharedInstance.playerNames[keyString])")
             
             for i in 0..<total {
                let y = CGFloat(20)
@@ -63,8 +60,8 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
                 imageVw.image = UIImage(named : "cardsbg.jpg")
                 //  first check if there is a user photo in the disk
                 let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-                if (CommonData.playerNames[CommonData.gameSelected]?.count)! > 0 {
-                    let filePath = paths[0] + "/" + (CommonData.playerNames[CommonData.gameSelected]?[i])! + ".png"
+                if (CommonData.sharedInstance.playerNames[CommonData.sharedInstance.gameSelected]?.count)! > 0 {
+                    let filePath = paths[0] + "/" + (CommonData.sharedInstance.playerNames[CommonData.sharedInstance.gameSelected]?[i])! + ".png"
                     let dataOfPhoto = NSData(contentsOfFile: filePath)
                     if dataOfPhoto != nil {
                         let image = UIImage(data: dataOfPhoto as! Data)
@@ -101,8 +98,8 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
    
     @IBAction func addScore() {
         yAxisPositionDecider = yAxisPositionDecider + 1
-        let k = CommonData.gameSelected
-        if let total = CommonData.playerNames[k]?.count {
+        let k = CommonData.sharedInstance.gameSelected
+        if let total = CommonData.sharedInstance.playerNames[k]?.count {
       //      yAxis = 20 + 75 + ( 20 * CGFloat(yAxisPositionDecider) )
             yAxis = yAxis + 1
             
@@ -134,10 +131,10 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
                         txtField.removeFromSuperview()
                         totalLabelsArray[i].backgroundColor = UIColor.black
                         totalLabelsArray[i].textColor = UIColor.white
-                        let str = CommonData.gameSelected
+                        let str = CommonData.sharedInstance.gameSelected
                         let keyString = str + "boolArrayForDeletedPlayers"
-                        if CommonData.playerNames[keyString]![i] == "not" {
-                        let alertMessage = UIAlertController(title: "\((CommonData.playerNames[CommonData.gameSelected]?[i])!) lost", message: "Do you want to add  \((CommonData.playerNames[CommonData.gameSelected]?[i])!) again", preferredStyle: .alert)
+                        if CommonData.sharedInstance.playerNames[keyString]![i] == "not" {
+                        let alertMessage = UIAlertController(title: "\((CommonData.sharedInstance.playerNames[CommonData.sharedInstance.gameSelected]?[i])!) lost", message: "Do you want to add  \((CommonData.sharedInstance.playerNames[CommonData.sharedInstance.gameSelected]?[i])!) again", preferredStyle: .alert)
                         
                         alertMessage.addTextField(configurationHandler: { (txtField) in
                             txtField.placeholder = "Score here"
@@ -153,27 +150,27 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
                        (_) in
                         
                             // present another alert to the user saying you are not re-adding the player to the game again so we are deleting the player from the game 
-                            let inneralertMessage = UIAlertController(title: "\((CommonData.playerNames[CommonData.gameSelected]?[i])!) will be delelted from the game", message: "Are you sure", preferredStyle: .alert)
+                            let inneralertMessage = UIAlertController(title: "\((CommonData.sharedInstance.playerNames[CommonData.sharedInstance.gameSelected]?[i])!) will be delelted from the game", message: "Are you sure", preferredStyle: .alert)
                             let okButtonInnerAlertMessage = UIAlertAction(title: "OK", style: .default, handler: { (_) in
                                 
                                 tempForTotalLabelNames.remove(at: i)
-                                let nameToDelete = CommonData.playerNames[CommonData.gameSelected]?[i]
-                                var tempForWorkingInLoop = CommonData.playerNames["copyOfPlayerNames"]
+                                let nameToDelete = CommonData.sharedInstance.playerNames[CommonData.sharedInstance.gameSelected]?[i]
+                                var tempForWorkingInLoop = CommonData.sharedInstance.playerNames["copyOfPlayerNames"]
                                 
                                 // create an array of bool in CommonData.playerNmaes["boolarrayofdeletedplayers"]
-                                let str = CommonData.gameSelected
+                                let str = CommonData.sharedInstance.gameSelected
                                 let keyString = str + "boolArrayForDeletedPlayers"
-                                CommonData.playerNames[keyString]?[i] = "notnot"
+                                CommonData.sharedInstance.playerNames[keyString]?[i] = "notnot"
                                 
-                                for ii in 0...(CommonData.playerNames["copyOfPlayerNames"]?.count)!-1 {
-                                    if let nameFromArrayOfcopy = CommonData.playerNames["copyOfPlayerNames"]?[ii] {
+                                for ii in 0...(CommonData.sharedInstance.playerNames["copyOfPlayerNames"]?.count)!-1 {
+                                    if let nameFromArrayOfcopy = CommonData.sharedInstance.playerNames["copyOfPlayerNames"]?[ii] {
                                         if  nameToDelete == nameFromArrayOfcopy {
                                             tempForWorkingInLoop?.remove(at: ii)
                                         }
                                     }
                                 }
-                                CommonData.playerNames["copyOfPlayerNames"] = tempForWorkingInLoop
-                                if CommonData.playerNames["copyOfPlayerNames"]?.count == 1 {
+                                CommonData.sharedInstance.playerNames["copyOfPlayerNames"] = tempForWorkingInLoop
+                                if CommonData.sharedInstance.playerNames["copyOfPlayerNames"]?.count == 1 {
                                     
                                     //take the time stamp and save it in game -> timestamps of common data
                                     var tempTimestampArray:[String] = []
@@ -182,11 +179,11 @@ class ScoreViewController: UIViewController, UITextFieldDelegate {
                                     dateFormatter.dateFormat = "MM-dd-yyyy hh:mm:ss"
                                     let dateInStr = dateFormatter.string(from: date as Date)
                                     tempTimestampArray.append(dateInStr)
-                                    CommonData.playerNames["timestamp"] = tempTimestampArray
+                                    CommonData.sharedInstance.playerNames["timestamp"] = tempTimestampArray
                                     
                                     // present the winner as only one left outside that is not added to the losers list
 
-                                    let alertMessageFinalSuccessMessage = UIAlertController(title: "\((CommonData.playerNames["copyOfPlayerNames"]?.first)!) Won", message: "Congratulations", preferredStyle: .alert)
+                                    let alertMessageFinalSuccessMessage = UIAlertController(title: "\((CommonData.sharedInstance.playerNames["copyOfPlayerNames"]?.first)!) Won", message: "Congratulations", preferredStyle: .alert)
                                     let okButtonFinalSuccessMessage = UIAlertAction(title: "OK", style: .default, handler: nil)
                                     alertMessageFinalSuccessMessage.addAction(okButtonFinalSuccessMessage)
                                     self.present(alertMessageFinalSuccessMessage, animated: true, completion: nil)

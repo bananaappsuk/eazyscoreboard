@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        var param1 = WCLShineParams()
 //        param1.bigShineColor = UIColor(rgb: (153,152,38))
 //        param1.smallShineColor = UIColor(rgb: (102,102,102))
@@ -58,5 +59,18 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func rummyButtonPressed(sender : UIButton) {
+        CommonData.sharedInstance.gameSelected = "rummy"
+    }
+    @IBAction func setsButtonPressed(sender : UIButton) {
+        CommonData.sharedInstance.gameSelected = "sets"
+    }
+    @IBAction func luxButtonPressed(sender : UIButton) {
+        CommonData.sharedInstance.gameSelected = "lux"
+    }
+    @IBAction func sequenceButtonPressed(sender : UIButton) {
+        CommonData.sharedInstance.gameSelected = "sequence"
+    }
 
 }

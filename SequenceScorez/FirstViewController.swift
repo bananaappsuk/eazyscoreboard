@@ -191,28 +191,28 @@ class FirstViewController: UIViewController, UITableViewDelegate,UITableViewData
                 let cell = tableView.cellForRow(at: indexpath!)
                 if let gameName = cell?.textLabel?.text {
                     vc.gameSelected = gameName
-                    CommonData.gameSelected = gameName
+                    CommonData.sharedInstance.gameSelected = gameName
                 }
             }
         } else if segue.identifier == "fromrummybutton" {
             if let vc = segue.destination as? SecondViewController {
                 vc.gameSelected = "rummy"
-                CommonData.gameSelected = "rummy"
+                CommonData.sharedInstance.gameSelected = "rummy"
             }
         } else if segue.identifier == "fromsevencardsgamebutton" {
             if let vc = segue.destination as? SecondViewController {
                 vc.gameSelected = "sevencardgame"
-                CommonData.gameSelected = "sevencardgame"
+                CommonData.sharedInstance.gameSelected = "sevencardgame"
             }
         } else if segue.identifier == "fromteenpattibutton" {
             if let vc = segue.destination as? SecondViewController {
                 vc.gameSelected = "teenpatti"
-                CommonData.gameSelected = "teenpatti"
+                CommonData.sharedInstance.gameSelected = "teenpatti"
             }
         } else if segue.identifier == "fromsetsgamebutton" {
             if let vc = segue.destination as? SecondViewController {
                 vc.gameSelected = "sets"
-                CommonData.gameSelected = "sets"
+                CommonData.sharedInstance.gameSelected = "sets"
             }
         }
     }
